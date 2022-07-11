@@ -1,5 +1,5 @@
 # Write your MySQL query statement below
-select u.name, sum(ifnull(r.distance,0)) as travelled_distance
+select u.name, (case when r.distance is null then 0 else sum(r.distance) end)travelled_distance
 from Users u left join Rides r
 on u.id=r.user_id
 group by u.id
