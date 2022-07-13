@@ -1,19 +1,20 @@
 class Solution {
 public:
     int getMaximumGenerated(int n) {
-        int *nums=new int[n+1];
-        if(n<1) return 0;
-        nums[0]=0;
-        nums[1]=1;
-        int m=1;
-        for(int i=2;i<=n;i++)
-        {
-            if(i%2==0)
-                nums[i]=nums[i/2];
-            else
-                nums[i]=nums[i/2]+nums[(i/2)+1];
-            m=max(m,nums[i]);
-        }
-        return m;
+        if(n == 0)return 0;
+    if(n == 1)return 1;
+    vector<int> tmp(n+1);
+    tmp[0] = 0;
+    tmp[1] = 1;
+    for(int i=1;i<=n;i++){
+        if(2*i<=n)
+            tmp[2*i] = tmp[i];
+        if(2*i-1<=n)
+            tmp[2*i-1] = tmp[i] + tmp[i-1];
+    }
+    int ans = 0;
+    for(int i=0;i<=n;i++)
+        ans = max(tmp[i], ans);
+    return ans;
     }
 };
