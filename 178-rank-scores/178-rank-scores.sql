@@ -1,4 +1,4 @@
 # Write your MySQL query statement below
-select score , 
-dense_rank() over(order by score desc) 'rank'
-from Scores;
+select s.score , (SELECT count(distinct(Score)) from Scores m where m.score>=s.score ) as 'rank'
+from Scores s
+order by s.score desc;
