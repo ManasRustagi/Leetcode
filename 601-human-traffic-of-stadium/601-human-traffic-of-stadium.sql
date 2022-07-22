@@ -1,8 +1,11 @@
 # Write your MySQL query statement below
-select distinct a.* 
-from Stadium a inner join Stadium b inner join Stadium c
-on (a.id+1=b.id and a.id+2=c.id)
-OR (a.id-1=b.id and a.id+1=c.id)
-OR (a.id-2=b.id and a.id-1=c.id )
-where a.people>=100 and b.people>=100 and c.people>=100
-order by visit_date;
+select distinct day1.* 
+from 
+stadium day1, stadium day2, stadium day3
+where 
+day1.people >= 100 and day2.people >= 100 
+and day3.people >= 100 and
+((day1.id + 1 =  day2.id and day1.id + 2 = day3.id) or 
+(day1.id - 1 = day2.id and day1.id + 1 = day3.id) or 
+(day1.id - 2 = day2.id and day1.id - 1 = day3.id)) 
+order by day1.id; 
