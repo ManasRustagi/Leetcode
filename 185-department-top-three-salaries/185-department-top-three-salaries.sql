@@ -5,6 +5,7 @@ e.departmentId=d.id
 where 3> 
 (select count(distinct Salary) from 
 Employee e2 
-where e2.salary>e.salary 
-and e.departmentID=e2.departmentID);
+where Salary>e.salary 
+and e.departmentID=e2.departmentID)
+order by d.ID,e.salary desc;
 
