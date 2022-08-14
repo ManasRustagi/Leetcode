@@ -23,9 +23,8 @@ public:
     vector<vector<int>> permute(vector<int>& nums) {
        vector<int> a;
         vector<vector<int>> b;
-        int n=nums.size();
-        int freq[n];
-        for(int i=0;i<n;i++) freq[i]=0;
+        int freq[nums.size()];
+        for(int i=0;i<nums.size();i++) freq[i]=0;
         Recursion(freq,nums,a,b);
         return b;
     }
