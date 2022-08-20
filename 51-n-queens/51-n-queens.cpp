@@ -1,36 +1,5 @@
 class Solution {
 public:
-    bool IsOkay(int r,int c,vector<string> a,vector<vector<string>> b,int n)
-    {
-        int dumr=r;
-        int dumc=c;
-        while(r>=0 && c>=0)
-        {
-            if(a[r][c]=='Q')
-            {
-                return false;
-            }
-            r--;
-            c--;
-        }
-        c=dumc;
-        while(c>=0)
-        {
-            if(a[dumr][c]=='Q')
-                return false;
-            c--;
-        }
-        r=dumr;
-        c=dumc;
-        while(r<n && c>=0)
-        {
-            if(a[r][c]=='Q')
-                return false;
-            r++;
-            c--;
-        }
-        return true;
-    }
     void Recursion(int col,vector<string> &a,vector<vector<string>> &b,int n
                   ,vector<int> leftrow, vector<int> lowerdiagonal, vector<int> upperdiagonal)
     {
